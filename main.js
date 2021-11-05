@@ -14,12 +14,18 @@ for(let i = 0; i < 5; i++){
     }
 }
 console.log(Numbers)
-
+const profile = [];
+for(let i = 0; i < 5; i++){
+    const number =  Math.floor(Math.random() * (100 - 1 + 1) ) + 1;
+    if(!profile.includes(number)) {
+        profile.push(number)
+    }
+}
 // creiamo array di 5 oggetti
 const post = [
     {
         nome: 'Matteo Rossi',
-        profilo: 'https://picsum.photos/id/1/600/350',
+        profilo: `https://picsum.photos/id/${profile[0]}/300/300`,
         data: '4 mesi fa',
         text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
         img: `https://picsum.photos/id/${Numbers[0]}/600/350`,
@@ -27,7 +33,7 @@ const post = [
     },
     {
         nome: 'Martina Greco',
-        profilo: 'https://picsum.photos/id/1/600/350',
+        profilo: `https://picsum.photos/id/${profile[1]}/300/300`,
         data: '4 mesi fa',
         text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
         img: `https://picsum.photos/id/${Numbers[1]}/600/350`,
@@ -35,7 +41,7 @@ const post = [
     },
     {
         nome: 'Franceso Ascani',
-        profilo: 'https://picsum.photos/id/1/600/350',
+        profilo: `https://picsum.photos/id/${profile[2]}/300/300`,
         data: '4 mesi fa',
         text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias',
         img: `https://picsum.photos/id/${Numbers[2]}/600/350`,
@@ -43,7 +49,7 @@ const post = [
     },
     {
         nome: 'Rosa Gallo',
-        profilo: 'https://picsum.photos/id/1/600/350',
+        profilo: `https://picsum.photos/id/${profile[3]}/300/300`,
         data: '4 mesi fa',
         text: 'Placeat libero ipsa nobis ipsum.',
         img: `https://picsum.photos/id/${Numbers[3]}/600/350`,
@@ -51,7 +57,7 @@ const post = [
     },
     {
         nome: 'Giacomo Ferrari',
-        profilo: 'https://picsum.photos/id/1/600/350',
+        profilo: `https://picsum.photos/id/${profile[4]}/300/300`,
         data: '4 mesi fa',
         text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut aliaslibero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut aliaslibero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
         img: `https://picsum.photos/id/${Numbers[4]}/600/350`,
@@ -106,7 +112,7 @@ function genPost(array, container){
     }
 }
 
-
+// genera numeri casuali
 function genRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
   }
