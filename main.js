@@ -5,6 +5,16 @@ Per le immagini va bene utilizzare qualsiasi servizio di placeholder ad es: http
 - Prendendo come riferimento il layout di esempio presente nell’html, stampiamo i post del nostro feed.
  */
 
+// generiamo numeri random per foto
+const Numbers = [];
+for(let i = 0; i < 5; i++){
+    const number =  Math.floor(Math.random() * (100 - 1 + 1) ) + 1;
+    if(!Numbers.includes(number)) {
+        Numbers.push(number)
+    }
+}
+console.log(Numbers)
+
 // creiamo array di 5 oggetti
 const post = [
     {
@@ -12,7 +22,7 @@ const post = [
         profilo: 'https://picsum.photos/id/1/600/350',
         data: '4 mesi fa',
         text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
-        img: 'https://picsum.photos/id/122/600/350',
+        img: `https://picsum.photos/id/${Numbers[0]}/600/350`,
         like: 100
     },
     {
@@ -20,7 +30,7 @@ const post = [
         profilo: 'https://picsum.photos/id/1/600/350',
         data: '4 mesi fa',
         text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
-        img: 'https://picsum.photos/id/122/600/350',
+        img: `https://picsum.photos/id/${Numbers[1]}/600/350`,
         like: 100
     },
     {
@@ -28,7 +38,7 @@ const post = [
         profilo: 'https://picsum.photos/id/1/600/350',
         data: '4 mesi fa',
         text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias',
-        img: 'https://picsum.photos/id/122/600/350',
+        img: `https://picsum.photos/id/${Numbers[2]}/600/350`,
         like: 100
     },
     {
@@ -36,7 +46,7 @@ const post = [
         profilo: 'https://picsum.photos/id/1/600/350',
         data: '4 mesi fa',
         text: 'Placeat libero ipsa nobis ipsum.',
-        img: 'https://picsum.photos/id/122/600/350',
+        img: `https://picsum.photos/id/${Numbers[3]}/600/350`,
         like: 100
     },
     {
@@ -44,16 +54,15 @@ const post = [
         profilo: 'https://picsum.photos/id/1/600/350',
         data: '4 mesi fa',
         text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut aliaslibero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut aliaslibero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
-        img: 'https://picsum.photos/id/122/600/350',
+        img: `https://picsum.photos/id/${Numbers[4]}/600/350`,
         like: 100
     },
 ]
 console.log(post)
 // creiamo nodo 
 const postContainer = document.querySelector("#container");
-genPost(post, postContainer);
 // printiamo i post
-
+genPost(post, postContainer,);
 
 // *********************FUNZIONE************************************//
 function genPost(array, container){
@@ -96,3 +105,8 @@ function genPost(array, container){
         `
     }
 }
+
+
+function genRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
