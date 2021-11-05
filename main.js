@@ -16,7 +16,7 @@ const post = [
         like: 100
     },
     {
-        nome: 'Matteo Rossi',
+        nome: 'Martina Greco',
         profilo: 'https://picsum.photos/id/1/600/350',
         data: '4 mesi fa',
         text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
@@ -24,29 +24,75 @@ const post = [
         like: 100
     },
     {
-        nome: 'Matteo Rossi',
+        nome: 'Franceso Ascani',
         profilo: 'https://picsum.photos/id/1/600/350',
         data: '4 mesi fa',
-        text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
+        text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias',
         img: 'https://picsum.photos/id/122/600/350',
         like: 100
     },
     {
-        nome: 'Matteo Rossi',
+        nome: 'Rosa Gallo',
         profilo: 'https://picsum.photos/id/1/600/350',
         data: '4 mesi fa',
-        text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
+        text: 'Placeat libero ipsa nobis ipsum.',
         img: 'https://picsum.photos/id/122/600/350',
         like: 100
     },
     {
-        nome: 'Matteo Rossi',
+        nome: 'Giacomo Ferrari',
         profilo: 'https://picsum.photos/id/1/600/350',
         data: '4 mesi fa',
-        text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
+        text: 'Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut aliaslibero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut aliaslibero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.',
         img: 'https://picsum.photos/id/122/600/350',
         like: 100
     },
 ]
+console.log(post)
+// creiamo nodo 
+const postContainer = document.querySelector("#container");
+genPost(post, postContainer);
+// printiamo i post
 
 
+// *********************FUNZIONE************************************//
+function genPost(array, container){
+    container.innerHTML = "";
+    for(let i = 0; i < array.length ; i++){
+        const info = array[i];
+    
+        //creare aggiungere il markup
+        container.innerHTML += `
+        <div class="post">
+            <div class="post__header">
+                <div class="post-meta">                    
+                    <div class="post-meta__icon">
+                        <img class="profile-pic" src="${info.profilo}" alt="Phil Mangione">                    
+                    </div>
+                    <div class="post-meta__data">
+                        <div class="post-meta__author">${info.nome}</div>
+                        <div class="post-meta__time">${info.data}</div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="post__text">${info.text}</div>
+            <div class="post__image">
+                <img src="${info.img}" alt="">
+            </div>
+            <div class="post__footer">
+                <div class="likes js-likes">
+                    <div class="likes__cta">
+                        <a class="like-button  js-like-button" href="#" data-postid="1">
+                            <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                            <span class="like-button__label">Mi Piace</span>
+                        </a>
+                    </div>
+                    <div class="likes__counter">
+                        Piace a <b id="like-counter-1" class="js-likes-counter">${info.like}</b> persone
+                    </div>
+                </div> 
+            </div>            
+        </div>
+        `
+    }
+}
